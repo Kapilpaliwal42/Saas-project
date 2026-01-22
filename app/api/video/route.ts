@@ -1,0 +1,21 @@
+import {NextRequest, NextResponse} from "next/server"
+import prisma from "@/prisma"
+
+
+export async function GET(request: NextRequest) {
+    try {
+      const videos =  await prisma.video.findMany({
+        orderBy : {
+            createdAt : 'desc'
+        }
+       })
+       console.log(videos)
+       return NextResponse.json(videos)
+
+    } catch (error) {
+       return NextResponse.json({error:"Error fetching videos"},{status:500}) 
+     } finally {
+        await prisma.$disconnect()
+    }
+
+}
