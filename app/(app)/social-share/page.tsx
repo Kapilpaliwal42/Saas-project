@@ -209,7 +209,7 @@ function SocialShare() {
                   onLoad={() => setIsTransfoming(false)}
                   removeBackground={removeBackground}
                   enhance={enhance}
-                  brightness={debouncedBrightness !== 0 ? debouncedBrightness : undefined}
+                  brightness={debouncedBrightness !== 0 ? debouncedBrightness.toString() : undefined}
                   sepia={sepia ? true : undefined}
                   grayscale={grayscale ? true : undefined}
                 />
